@@ -47,7 +47,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::slot.slot",
-      "mappedBy": "slot_mechanic"
+      "mappedBy": "slotMechanic"
     }
   }
 }

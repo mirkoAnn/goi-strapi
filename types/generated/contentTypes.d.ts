@@ -869,7 +869,7 @@ export interface ApiSlotSlot extends Struct.CollectionTypeSchema {
     rulesContent: Schema.Attribute.Blocks;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     sessions: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
-    slot_mechanic: Schema.Attribute.Relation<
+    slotMechanic: Schema.Attribute.Relation<
       'manyToOne',
       'api::slot-mechanic.slot-mechanic'
     >;

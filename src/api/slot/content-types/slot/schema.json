@@ -90,7 +90,7 @@
       "component": "common.rating",
       "repeatable": false
     },
-    "slot_mechanic": {
+    "slotMechanic": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::slot-mechanic.slot-mechanic",
