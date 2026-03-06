@@ -765,6 +765,35 @@ export interface ApiProvidersPageProvidersPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiSearchQuerySearchQuery extends Struct.CollectionTypeSchema {
+  collectionName: 'search_queries';
+  info: {
+    displayName: 'Search Query';
+    pluralName: 'search-queries';
+    singularName: 'search-query';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::search-query.search-query'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    query: Schema.Attribute.String;
+    relevance: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSlotMechanicSlotMechanic
   extends Struct.CollectionTypeSchema {
   collectionName: 'slot_mechanics';
@@ -1438,6 +1467,7 @@ declare module '@strapi/strapi' {
       'api::payment-method.payment-method': ApiPaymentMethodPaymentMethod;
       'api::provider.provider': ApiProviderProvider;
       'api::providers-page.providers-page': ApiProvidersPageProvidersPage;
+      'api::search-query.search-query': ApiSearchQuerySearchQuery;
       'api::slot-mechanic.slot-mechanic': ApiSlotMechanicSlotMechanic;
       'api::slot-theme.slot-theme': ApiSlotThemeSlotTheme;
       'api::slot.slot': ApiSlotSlot;
