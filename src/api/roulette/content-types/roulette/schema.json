@@ -69,6 +69,11 @@
       "type": "component",
       "component": "roulette.info",
       "repeatable": false
+    },
+    "rating": {
+      "type": "component",
+      "component": "common.rating",
+      "repeatable": false
     }
   }
 }
