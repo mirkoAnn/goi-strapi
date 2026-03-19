@@ -1,0 +1,54 @@
+{
+  "kind": "singleType",
+  "collectionName": "slots_bests",
+  "info": {
+    "singularName": "slots-best",
+    "pluralName": "slots-bests",
+    "displayName": "Slots Best"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "introContent": {
+      "type": "blocks"
+    },
+    "bestSlotsContent": {
+      "type": "blocks"
+    },
+    "gateOfOlympusContent": {
+      "type": "blocks"
+    },
+    "bookOfRaContent": {
+      "type": "blocks"
+    },
+    "bigBassContent": {
+      "type": "blocks"
+    },
+    "characteristicsContent": {
+      "type": "blocks"
+    },
+    "beyondClassicContent": {
+      "type": "blocks"
+    },
+    "tryContent": {
+      "type": "blocks"
+    },
+    "faqs": {
+      "type": "component",
+      "component": "faqs.faqs",
+      "repeatable": true
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author"
+    }
+  }
+}

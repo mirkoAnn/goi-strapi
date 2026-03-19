@@ -1,0 +1,51 @@
+{
+  "kind": "singleType",
+  "collectionName": "slots_news",
+  "info": {
+    "singularName": "slots-new",
+    "pluralName": "slots-news",
+    "displayName": "Slots New"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "introContent": {
+      "type": "blocks"
+    },
+    "reelsContent": {
+      "type": "blocks"
+    },
+    "graphicsContent": {
+      "type": "blocks"
+    },
+    "backstageContent": {
+      "type": "blocks"
+    },
+    "gamificationContent": {
+      "type": "blocks"
+    },
+    "securityContent": {
+      "type": "blocks"
+    },
+    "futureContent": {
+      "type": "blocks"
+    },
+    "faqs": {
+      "type": "component",
+      "component": "faqs.faqs",
+      "repeatable": true
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author"
+    }
+  }
+}

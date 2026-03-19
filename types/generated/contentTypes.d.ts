@@ -1035,6 +1035,81 @@ export interface ApiSlotSlot extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSlotsBestSlotsBest extends Struct.SingleTypeSchema {
+  collectionName: 'slots_bests';
+  info: {
+    displayName: 'Slots Best';
+    pluralName: 'slots-bests';
+    singularName: 'slots-best';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    bestSlotsContent: Schema.Attribute.Blocks;
+    beyondClassicContent: Schema.Attribute.Blocks;
+    bigBassContent: Schema.Attribute.Blocks;
+    bookOfRaContent: Schema.Attribute.Blocks;
+    characteristicsContent: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true>;
+    gateOfOlympusContent: Schema.Attribute.Blocks;
+    introContent: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::slots-best.slots-best'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    tryContent: Schema.Attribute.Blocks;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSlotsNewSlotsNew extends Struct.SingleTypeSchema {
+  collectionName: 'slots_news';
+  info: {
+    displayName: 'Slots New';
+    pluralName: 'slots-news';
+    singularName: 'slots-new';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    backstageContent: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true>;
+    futureContent: Schema.Attribute.Blocks;
+    gamificationContent: Schema.Attribute.Blocks;
+    graphicsContent: Schema.Attribute.Blocks;
+    introContent: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::slots-new.slots-new'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    reelsContent: Schema.Attribute.Blocks;
+    securityContent: Schema.Attribute.Blocks;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSlotsPageSlotsPage extends Struct.SingleTypeSchema {
   collectionName: 'slots_pages';
   info: {
@@ -1595,6 +1670,8 @@ declare module '@strapi/strapi' {
       'api::slot-mechanic.slot-mechanic': ApiSlotMechanicSlotMechanic;
       'api::slot-theme.slot-theme': ApiSlotThemeSlotTheme;
       'api::slot.slot': ApiSlotSlot;
+      'api::slots-best.slots-best': ApiSlotsBestSlotsBest;
+      'api::slots-new.slots-new': ApiSlotsNewSlotsNew;
       'api::slots-page.slots-page': ApiSlotsPageSlotsPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
