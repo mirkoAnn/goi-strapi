@@ -75,7 +75,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::author.author",
-      "inversedBy": "slot_mechanics"
+      "inversedBy": "slotMechanics"
     },
     "slots": {
       "type": "relation",

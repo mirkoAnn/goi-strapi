@@ -529,12 +529,12 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
       }>;
     providers: Schema.Attribute.Relation<'oneToMany', 'api::provider.provider'>;
     publishedAt: Schema.Attribute.DateTime;
-    roulette_mechanics: Schema.Attribute.Relation<
+    rouletteMechanics: Schema.Attribute.Relation<
       'oneToMany',
       'api::roulette-mechanic.roulette-mechanic'
     >;
     roulettes: Schema.Attribute.Relation<'oneToMany', 'api::roulette.roulette'>;
-    slot_mechanics: Schema.Attribute.Relation<
+    slotMechanics: Schema.Attribute.Relation<
       'oneToMany',
       'api::slot-mechanic.slot-mechanic'
     >;

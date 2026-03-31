@@ -90,7 +90,7 @@
       "target": "api::casino.casino",
       "mappedBy": "author"
     },
-    "slot_mechanics": {
+    "slotMechanics": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::slot-mechanic.slot-mechanic",
@@ -102,7 +102,7 @@
       "target": "api::roulette.roulette",
       "mappedBy": "author"
     },
-    "roulette_mechanics": {
+    "rouletteMechanics": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::roulette-mechanic.roulette-mechanic",
