@@ -107,6 +107,18 @@
       "relation": "oneToMany",
       "target": "api::roulette-mechanic.roulette-mechanic",
       "mappedBy": "author"
+    },
+    "casinosIt": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::casino-it.casino-it",
+      "mappedBy": "author"
+    },
+    "casinosEs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::casino-es.casino-es",
+      "mappedBy": "author"
     }
   }
 }

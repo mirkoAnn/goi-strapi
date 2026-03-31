@@ -41,6 +41,7 @@ export interface CasinoInfo extends Struct.ComponentSchema {
         number
       > &
       Schema.Attribute.DefaultTo<0>;
+    depositMin: Schema.Attribute.String;
     designRating: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
@@ -50,6 +51,7 @@ export interface CasinoInfo extends Struct.ComponentSchema {
         number
       > &
       Schema.Attribute.DefaultTo<0>;
+    email: Schema.Attribute.String;
     gamesRating: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
@@ -59,11 +61,14 @@ export interface CasinoInfo extends Struct.ComponentSchema {
         number
       > &
       Schema.Attribute.DefaultTo<0>;
+    hasApp: Schema.Attribute.Boolean;
     hasBlackjack: Schema.Attribute.Boolean;
+    hasGreatDesign: Schema.Attribute.Boolean;
     hasLiveGames: Schema.Attribute.Boolean;
     hasPoker: Schema.Attribute.Boolean;
     hasRoulette: Schema.Attribute.Boolean;
     hasSportBetting: Schema.Attribute.Boolean;
+    homepageUrl: Schema.Attribute.String;
     mobileRating: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
@@ -82,6 +87,9 @@ export interface CasinoInfo extends Struct.ComponentSchema {
         number
       > &
       Schema.Attribute.DefaultTo<0>;
+    telephone: Schema.Attribute.String;
+    withdrawalMin: Schema.Attribute.String;
+    withdrawalTimes: Schema.Attribute.String;
   };
 }
 

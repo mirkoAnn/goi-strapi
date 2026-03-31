@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "slots_bests_es",
+  "info": {
+    "singularName": "slots-best-es",
+    "pluralName": "slots-bests-es",
+    "displayName": "Slots Best ES"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author"
+    }
+  }
+}

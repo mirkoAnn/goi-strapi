@@ -49,6 +49,30 @@
       "default": 0,
       "min": 0,
       "max": 5
+    },
+    "homepageUrl": {
+      "type": "string"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "depositMin": {
+      "type": "string"
+    },
+    "withdrawalMin": {
+      "type": "string"
+    },
+    "withdrawalTimes": {
+      "type": "string"
+    },
+    "hasApp": {
+      "type": "boolean"
+    },
+    "hasGreatDesign": {
+      "type": "boolean"
     }
   },
   "config": {}

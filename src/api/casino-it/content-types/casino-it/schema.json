@@ -1,0 +1,118 @@
+{
+  "kind": "collectionType",
+  "collectionName": "casinos_it",
+  "info": {
+    "singularName": "casino-it",
+    "pluralName": "casinos-it",
+    "displayName": "Casino IT"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "welcomeBonus": {
+      "type": "component",
+      "component": "casino.welcome-bonus",
+      "repeatable": false
+    },
+    "info": {
+      "type": "component",
+      "component": "casino.info",
+      "repeatable": false
+    },
+    "introContent": {
+      "type": "blocks"
+    },
+    "siteDesignContent": {
+      "type": "blocks"
+    },
+    "slotsContent": {
+      "type": "blocks"
+    },
+    "liveContent": {
+      "type": "blocks"
+    },
+    "securityPaymentsContent": {
+      "type": "blocks"
+    },
+    "opinionContent": {
+      "type": "blocks"
+    },
+    "imagesMobile": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "casinosIt"
+    },
+    "providers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::provider.provider",
+      "inversedBy": "casinosIt"
+    },
+    "colors": {
+      "type": "component",
+      "component": "common.colors",
+      "repeatable": false
+    },
+    "rating": {
+      "type": "component",
+      "component": "common.rating",
+      "repeatable": false
+    },
+    "paymentMethods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::payment-method.payment-method",
+      "inversedBy": "casinosIt"
+    },
+    "rank": {
+      "type": "integer",
+      "default": 100
+    },
+    "bonusContent": {
+      "type": "blocks"
+    },
+    "sportContent": {
+      "type": "blocks"
+    },
+    "affiliationUrl": {
+      "type": "string"
+    }
+  }
+}

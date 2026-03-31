@@ -85,6 +85,12 @@
       "relation": "oneToMany",
       "target": "api::roulette.roulette",
       "mappedBy": "provider"
+    },
+    "casinosIt": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::casino-it.casino-it",
+      "mappedBy": "providers"
     }
   }
 }

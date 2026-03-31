@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "casinos_pages_it",
+  "info": {
+    "singularName": "casinos-page-it",
+    "pluralName": "casinos-pages-it",
+    "displayName": "Casinos Page IT"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author"
+    }
+  }
+}
