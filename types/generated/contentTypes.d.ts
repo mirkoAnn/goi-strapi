@@ -483,7 +483,6 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    casinos: Schema.Attribute.Relation<'oneToMany', 'api::casino.casino'>;
     casinosEs: Schema.Attribute.Relation<
       'oneToMany',
       'api::casino-es.casino-es'
@@ -547,89 +546,6 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-  };
-}
-
-export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
-  collectionName: 'brands';
-  info: {
-    displayName: 'Brand';
-    pluralName: 'brands';
-    singularName: 'brand';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    depositMin: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    email: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    hasApp: Schema.Attribute.Boolean &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    hasGreatDesign: Schema.Attribute.Boolean &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    homepageUrl: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'>;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'>;
-    telephone: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    withdrawalMin: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    withdrawalTime: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
   };
 }
 
@@ -716,166 +632,6 @@ export interface ApiCasinoItCasinoIt extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     welcomeBonus: Schema.Attribute.Component<'casino.welcome-bonus', false>;
-  };
-}
-
-export interface ApiCasinoCasino extends Struct.CollectionTypeSchema {
-  collectionName: 'casinos';
-  info: {
-    displayName: 'Casino';
-    pluralName: 'casinos';
-    singularName: 'casino';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    affiliationUrl: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    bonusContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    brand: Schema.Attribute.Relation<'oneToOne', 'api::brand.brand'>;
-    colors: Schema.Attribute.Component<'common.colors', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    images: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    imagesMobile: Schema.Attribute.Media<
-      'images' | 'videos' | 'audios' | 'files',
-      true
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    info: Schema.Attribute.Component<'casino.info', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    introContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    liveContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::casino.casino'>;
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    opinionContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    paymentMethods: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::payment-method.payment-method'
-    >;
-    providers: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::provider.provider'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    rank: Schema.Attribute.Integer &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<100>;
-    rating: Schema.Attribute.Component<'common.rating', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    securityPaymentsContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    seo: Schema.Attribute.Component<'seo.seo', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    siteDesignContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    slotsContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    slug: Schema.Attribute.UID<'title'>;
-    sportContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    welcomeBonus: Schema.Attribute.Component<'casino.welcome-bonus', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
   };
 }
 
@@ -1103,7 +859,6 @@ export interface ApiPaymentMethodPaymentMethod
     draftAndPublish: true;
   };
   attributes: {
-    casinos: Schema.Attribute.Relation<'manyToMany', 'api::casino.casino'>;
     casinosIt: Schema.Attribute.Relation<
       'manyToMany',
       'api::casino-it.casino-it'
@@ -1144,7 +899,6 @@ export interface ApiProviderProvider extends Struct.CollectionTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    casinos: Schema.Attribute.Relation<'manyToMany', 'api::casino.casino'>;
     casinosIt: Schema.Attribute.Relation<
       'manyToMany',
       'api::casino-it.casino-it'
@@ -1661,12 +1415,6 @@ export interface ApiSlotMechanicSlotMechanic
           localized: true;
         };
       }>;
-    icon: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     introContent: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1732,12 +1480,6 @@ export interface ApiSlotThemeSlotTheme extends Struct.CollectionTypeSchema {
         };
       }>;
     firstContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    icon: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2853,10 +2595,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::author.author': ApiAuthorAuthor;
-      'api::brand.brand': ApiBrandBrand;
       'api::casino-es.casino-es': ApiCasinoEsCasinoEs;
       'api::casino-it.casino-it': ApiCasinoItCasinoIt;
-      'api::casino.casino': ApiCasinoCasino;
       'api::casinos-page-es.casinos-page-es': ApiCasinosPageEsCasinosPageEs;
       'api::casinos-page-it.casinos-page-it': ApiCasinosPageItCasinosPageIt;
       'api::game-error-report.game-error-report': ApiGameErrorReportGameErrorReport;

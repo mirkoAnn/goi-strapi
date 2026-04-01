@@ -82,18 +82,6 @@
       "relation": "oneToMany",
       "target": "api::slot.slot",
       "mappedBy": "slotMechanic"
-    },
-    "icon": {
-      "type": "media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
     }
   }
 }

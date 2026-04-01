@@ -84,12 +84,6 @@
       "target": "api::provider.provider",
       "mappedBy": "author"
     },
-    "casinos": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::casino.casino",
-      "mappedBy": "author"
-    },
     "slotMechanics": {
       "type": "relation",
       "relation": "oneToMany",
