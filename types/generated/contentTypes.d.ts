@@ -675,18 +675,26 @@ export interface ApiCasinosPageItCasinosPageIt extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    admContent: Schema.Attribute.Blocks;
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    bonusContent: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true>;
+    howToPlayContent: Schema.Attribute.Blocks;
+    introContent: Schema.Attribute.Blocks;
+    liveContent: Schema.Attribute.Blocks;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::casinos-page-it.casinos-page-it'
     > &
       Schema.Attribute.Private;
+    paymentsContent: Schema.Attribute.Blocks;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
+    slotsContent: Schema.Attribute.Blocks;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
