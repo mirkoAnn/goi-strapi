@@ -30,6 +30,12 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "casinos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::casino.casino",
+      "mappedBy": "paymentMethods"
     }
   }
 }

@@ -85,6 +85,12 @@
       "relation": "manyToMany",
       "target": "api::casino-it.casino-it",
       "mappedBy": "providers"
+    },
+    "casinos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::casino.casino",
+      "mappedBy": "providers"
     }
   }
 }

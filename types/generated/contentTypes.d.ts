@@ -687,6 +687,122 @@ export interface ApiCasinoItCasinoIt extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCasinoCasino extends Struct.CollectionTypeSchema {
+  collectionName: 'casinos';
+  info: {
+    displayName: 'Casino';
+    pluralName: 'casinos';
+    singularName: 'casino';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    affiliationUrl: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    colors: Schema.Attribute.Component<'common.colors', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Schema.Attribute.Component<'common.content', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    images: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    imagesMobile: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    info: Schema.Attribute.Component<'casino.info', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::casino.casino'>;
+    logo: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    logoSmall: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    paymentMethods: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::payment-method.payment-method'
+    >;
+    providers: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::provider.provider'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    rating: Schema.Attribute.Component<'common.rating', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Schema.Attribute.Component<'seo.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    welcomeBonus: Schema.Attribute.Component<'casino.welcome-bonus', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
 export interface ApiCasinosPageCasinosPage extends Struct.SingleTypeSchema {
   collectionName: 'casinos_pages';
   info: {
@@ -873,6 +989,7 @@ export interface ApiPaymentMethodPaymentMethod
     draftAndPublish: true;
   };
   attributes: {
+    casinos: Schema.Attribute.Relation<'manyToMany', 'api::casino.casino'>;
     casinosIt: Schema.Attribute.Relation<
       'manyToMany',
       'api::casino-it.casino-it'
@@ -913,6 +1030,7 @@ export interface ApiProviderProvider extends Struct.CollectionTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    casinos: Schema.Attribute.Relation<'manyToMany', 'api::casino.casino'>;
     casinosIt: Schema.Attribute.Relation<
       'manyToMany',
       'api::casino-it.casino-it'
@@ -2070,6 +2188,7 @@ declare module '@strapi/strapi' {
       'api::best-slots-page.best-slots-page': ApiBestSlotsPageBestSlotsPage;
       'api::casino-es.casino-es': ApiCasinoEsCasinoEs;
       'api::casino-it.casino-it': ApiCasinoItCasinoIt;
+      'api::casino.casino': ApiCasinoCasino;
       'api::casinos-page.casinos-page': ApiCasinosPageCasinosPage;
       'api::game-error-report.game-error-report': ApiGameErrorReportGameErrorReport;
       'api::home-page.home-page': ApiHomePageHomePage;
