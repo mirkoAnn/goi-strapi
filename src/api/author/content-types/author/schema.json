@@ -101,6 +101,12 @@
       "relation": "oneToMany",
       "target": "api::roulette-mechanic.roulette-mechanic",
       "mappedBy": "author"
+    },
+    "casinos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::casino.casino",
+      "mappedBy": "author"
     }
   }
 }

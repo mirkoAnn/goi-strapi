@@ -483,6 +483,7 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    casinos: Schema.Attribute.Relation<'oneToMany', 'api::casino.casino'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -613,7 +614,7 @@ export interface ApiCasinoCasino extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     colors: Schema.Attribute.Component<'common.colors', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

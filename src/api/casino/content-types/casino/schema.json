@@ -161,11 +161,6 @@
       "target": "api::payment-method.payment-method",
       "inversedBy": "casinos"
     },
-    "author": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::author.author"
-    },
     "rank": {
       "type": "integer",
       "pluginOptions": {
@@ -174,6 +169,12 @@
         }
       },
       "default": 100
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "casinos"
     }
   }
 }
