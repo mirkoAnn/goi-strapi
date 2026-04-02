@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_common_contents",
+  "info": {
+    "displayName": "Content"
+  },
+  "options": {},
+  "attributes": {
+    "firstContent": {
+      "type": "blocks"
+    },
+    "secondContent": {
+      "type": "blocks"
+    },
+    "thirdContent": {
+      "type": "blocks"
+    },
+    "fourthContent": {
+      "type": "blocks"
+    },
+    "fifthContent": {
+      "type": "blocks"
+    },
+    "sixthContent": {
+      "type": "blocks"
+    },
+    "seventhContent": {
+      "type": "blocks"
+    },
+    "eighthContent": {
+      "type": "blocks"
+    },
+    "ninethContent": {
+      "type": "blocks"
+    },
+    "tenthContent": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

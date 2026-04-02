@@ -119,6 +119,25 @@ export interface CommonColors extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonContent extends Struct.ComponentSchema {
+  collectionName: 'components_common_contents';
+  info: {
+    displayName: 'Content';
+  };
+  attributes: {
+    eighthContent: Schema.Attribute.Blocks;
+    fifthContent: Schema.Attribute.Blocks;
+    firstContent: Schema.Attribute.Blocks;
+    fourthContent: Schema.Attribute.Blocks;
+    ninethContent: Schema.Attribute.Blocks;
+    secondContent: Schema.Attribute.Blocks;
+    seventhContent: Schema.Attribute.Blocks;
+    sixthContent: Schema.Attribute.Blocks;
+    tenthContent: Schema.Attribute.Blocks;
+    thirdContent: Schema.Attribute.Blocks;
+  };
+}
+
 export interface CommonRating extends Struct.ComponentSchema {
   collectionName: 'components_common_ratings';
   info: {
@@ -194,6 +213,7 @@ declare module '@strapi/strapi' {
       'casino.info': CasinoInfo;
       'casino.welcome-bonus': CasinoWelcomeBonus;
       'common.colors': CommonColors;
+      'common.content': CommonContent;
       'common.rating': CommonRating;
       'faqs.faqs': FaqsFaqs;
       'roulette.info': RouletteInfo;

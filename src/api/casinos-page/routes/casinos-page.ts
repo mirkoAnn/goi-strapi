@@ -1,0 +1,7 @@
+/**
+ * casinos-page router
+ */
+
+import { factories } from '@strapi/strapi';
+
+export default factories.createCoreRouter('api::casinos-page.casinos-page');

@@ -549,6 +549,56 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBestSlotsPageBestSlotsPage extends Struct.SingleTypeSchema {
+  collectionName: 'best_slots_pages';
+  info: {
+    displayName: 'Best Slots Page';
+    pluralName: 'best-slots-pages';
+    singularName: 'best-slots-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    content: Schema.Attribute.Component<'common.content', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::best-slots-page.best-slots-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCasinoEsCasinoEs extends Struct.CollectionTypeSchema {
   collectionName: 'casinos_es';
   info: {
@@ -637,66 +687,50 @@ export interface ApiCasinoItCasinoIt extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiCasinosPageEsCasinosPageEs extends Struct.SingleTypeSchema {
-  collectionName: 'casinos_pages_es';
+export interface ApiCasinosPageCasinosPage extends Struct.SingleTypeSchema {
+  collectionName: 'casinos_pages';
   info: {
-    displayName: 'Casinos Page ES';
-    pluralName: 'casinos-pages-es';
-    singularName: 'casinos-page-es';
+    displayName: 'Casinos Page';
+    pluralName: 'casinos-pages';
+    singularName: 'casinos-page';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    content: Schema.Attribute.Component<'common.content', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::casinos-page-es.casinos-page-es'
-    > &
-      Schema.Attribute.Private;
+      'api::casinos-page.casinos-page'
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiCasinosPageItCasinosPageIt extends Struct.SingleTypeSchema {
-  collectionName: 'casinos_pages_it';
-  info: {
-    displayName: 'Casinos Page IT';
-    pluralName: 'casinos-pages-it';
-    singularName: 'casinos-page-it';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    admContent: Schema.Attribute.Blocks;
-    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    bonusContent: Schema.Attribute.Blocks;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    faqs: Schema.Attribute.Component<'faqs.faqs', true>;
-    howToPlayContent: Schema.Attribute.Blocks;
-    introContent: Schema.Attribute.Blocks;
-    liveContent: Schema.Attribute.Blocks;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::casinos-page-it.casinos-page-it'
-    > &
-      Schema.Attribute.Private;
-    paymentsContent: Schema.Attribute.Blocks;
-    publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
-    slotsContent: Schema.Attribute.Blocks;
+    seo: Schema.Attribute.Component<'seo.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -732,27 +766,43 @@ export interface ApiGameErrorReportGameErrorReport
   };
 }
 
-export interface ApiHomePageEsHomePageEs extends Struct.SingleTypeSchema {
-  collectionName: 'home_pages_es';
+export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
+  collectionName: 'home_pages';
   info: {
-    displayName: 'Home Page ES';
-    pluralName: 'home-pages-es';
-    singularName: 'home-page-es';
+    displayName: 'Home Page';
+    pluralName: 'home-pages';
+    singularName: 'home-page';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    content: Schema.Attribute.Component<'common.content', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::home-page-es.home-page-es'
-    > &
-      Schema.Attribute.Private;
+      'api::home-page.home-page'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
@@ -761,29 +811,50 @@ export interface ApiHomePageEsHomePageEs extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiHomePageItHomePageIt extends Struct.SingleTypeSchema {
-  collectionName: 'home_pages_it';
+export interface ApiNewSlotsPageNewSlotsPage extends Struct.SingleTypeSchema {
+  collectionName: 'new_slots_pages';
   info: {
-    displayName: 'Home Page IT';
-    pluralName: 'home-pages-it';
-    singularName: 'home-page-it';
+    displayName: 'New Slots Page';
+    pluralName: 'new-slots-pages';
+    singularName: 'new-slots-page';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    content: Schema.Attribute.Component<'common.content', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::home-page-it.home-page-it'
-    > &
-      Schema.Attribute.Private;
+      'api::new-slots-page.new-slots-page'
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
+    seo: Schema.Attribute.Component<'seo.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -888,60 +959,50 @@ export interface ApiProviderProvider extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiProvidersPageEsProvidersPageEs
-  extends Struct.SingleTypeSchema {
-  collectionName: 'providers_pages_es';
+export interface ApiProvidersPageProvidersPage extends Struct.SingleTypeSchema {
+  collectionName: 'providers_pages';
   info: {
-    displayName: 'Providers Page ES';
-    pluralName: 'providers-pages-es';
-    singularName: 'providers-page-es';
+    displayName: 'Providers Page';
+    pluralName: 'providers-pages';
+    singularName: 'providers-page';
   };
   options: {
     draftAndPublish: true;
   };
-  attributes: {
-    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::providers-page-es.providers-page-es'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiProvidersPageItProvidersPageIt
-  extends Struct.SingleTypeSchema {
-  collectionName: 'providers_pages_it';
-  info: {
-    displayName: 'Providers Page IT';
-    pluralName: 'providers-pages-it';
-    singularName: 'providers-page-it';
-  };
-  options: {
-    draftAndPublish: true;
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    content: Schema.Attribute.Component<'common.content', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::providers-page-it.providers-page-it'
-    > &
-      Schema.Attribute.Private;
+      'api::providers-page.providers-page'
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
+    seo: Schema.Attribute.Component<'seo.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1008,6 +1069,56 @@ export interface ApiRouletteMechanicRouletteMechanic
       }>;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRoulettePageRoulettePage extends Struct.SingleTypeSchema {
+  collectionName: 'roulette_pages';
+  info: {
+    displayName: 'Roulette Page';
+    pluralName: 'roulette-pages';
+    singularName: 'roulette-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    content: Schema.Attribute.Component<'common.content', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::roulette-page.roulette-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1106,73 +1217,6 @@ export interface ApiRouletteRoulette extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiRoulettesPageEsRoulettesPageEs
-  extends Struct.SingleTypeSchema {
-  collectionName: 'roulettes_pages_es';
-  info: {
-    displayName: 'Roulettes Page ES';
-    pluralName: 'roulettes-pages-es';
-    singularName: 'roulettes-page-es';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::roulettes-page-es.roulettes-page-es'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiRoulettesPageItRoulettesPageIt
-  extends Struct.SingleTypeSchema {
-  collectionName: 'roulettes_pages_it';
-  info: {
-    displayName: 'Roulettes Page IT';
-    pluralName: 'roulettes-pages-it';
-    singularName: 'roulettes-page-it';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    faqs: Schema.Attribute.Component<'faqs.faqs', true>;
-    howToPlayContent: Schema.Attribute.Blocks;
-    introContent: Schema.Attribute.Blocks;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::roulettes-page-it.roulettes-page-it'
-    > &
-      Schema.Attribute.Private;
-    providersContent: Schema.Attribute.Blocks;
-    publishedAt: Schema.Attribute.DateTime;
-    risksContent: Schema.Attribute.Blocks;
-    securityContent: Schema.Attribute.Blocks;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
-    typesContent: Schema.Attribute.Blocks;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1461,200 +1505,53 @@ export interface ApiSlotSlot extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiSlotsBestEsSlotsBestEs extends Struct.SingleTypeSchema {
-  collectionName: 'slots_bests_es';
+export interface ApiSlotsPageSlotsPage extends Struct.SingleTypeSchema {
+  collectionName: 'slots_pages';
   info: {
-    displayName: 'Slots Best ES';
-    pluralName: 'slots-bests-es';
-    singularName: 'slots-best-es';
+    displayName: 'Slots Page';
+    pluralName: 'slots-pages';
+    singularName: 'slots-page';
   };
   options: {
     draftAndPublish: true;
   };
-  attributes: {
-    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::slots-best-es.slots-best-es'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSlotsBestItSlotsBestIt extends Struct.SingleTypeSchema {
-  collectionName: 'slots_bests_it';
-  info: {
-    displayName: 'Slots Best IT';
-    pluralName: 'slots-bests-it';
-    singularName: 'slots-best-it';
-  };
-  options: {
-    draftAndPublish: true;
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    bestSlotsContent: Schema.Attribute.Blocks;
-    beyondClassicContent: Schema.Attribute.Blocks;
-    bigBassContent: Schema.Attribute.Blocks;
-    bookOfRaContent: Schema.Attribute.Blocks;
-    characteristicsContent: Schema.Attribute.Blocks;
+    content: Schema.Attribute.Component<'common.content', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    faqs: Schema.Attribute.Component<'faqs.faqs', true>;
-    gateOfOlympusContent: Schema.Attribute.Blocks;
-    introContent: Schema.Attribute.Blocks;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::slots-best-it.slots-best-it'
-    > &
-      Schema.Attribute.Private;
+      'api::slots-page.slots-page'
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
-    tryContent: Schema.Attribute.Blocks;
+    seo: Schema.Attribute.Component<'seo.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSlotsNewEsSlotsNewEs extends Struct.SingleTypeSchema {
-  collectionName: 'slots_news_es';
-  info: {
-    displayName: 'Slots New ES';
-    pluralName: 'slots-news-es';
-    singularName: 'slots-new-es';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::slots-new-es.slots-new-es'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSlotsNewItSlotsNewIt extends Struct.SingleTypeSchema {
-  collectionName: 'slots_news_it';
-  info: {
-    displayName: 'Slots New IT';
-    pluralName: 'slots-news-it';
-    singularName: 'slots-new-it';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    backstageContent: Schema.Attribute.Blocks;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    faqs: Schema.Attribute.Component<'faqs.faqs', true>;
-    futureContent: Schema.Attribute.Blocks;
-    gamificationContent: Schema.Attribute.Blocks;
-    graphicsContent: Schema.Attribute.Blocks;
-    introContent: Schema.Attribute.Blocks;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::slots-new-it.slots-new-it'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    reelsContent: Schema.Attribute.Blocks;
-    securityContent: Schema.Attribute.Blocks;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSlotsPageEsSlotsPageEs extends Struct.SingleTypeSchema {
-  collectionName: 'slots_pages_es';
-  info: {
-    displayName: 'Slots Page ES';
-    pluralName: 'slots-pages-es';
-    singularName: 'slots-page-es';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::slots-page-es.slots-page-es'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSlotsPageItSlotsPageIt extends Struct.SingleTypeSchema {
-  collectionName: 'slots_pages_it';
-  info: {
-    displayName: 'Slots Page IT';
-    pluralName: 'slots-pages-it';
-    singularName: 'slots-page-it';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    bestSlotsContent: Schema.Attribute.Blocks;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    faqs: Schema.Attribute.Component<'faqs.faqs', true>;
-    howToPlaySlotsContent: Schema.Attribute.Blocks;
-    introContent: Schema.Attribute.Blocks;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::slots-page-it.slots-page-it'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
-    slotsCategoryContent: Schema.Attribute.Blocks;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    whatAreSlotsContent: Schema.Attribute.Blocks;
   };
 }
 
@@ -2170,31 +2067,24 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::author.author': ApiAuthorAuthor;
+      'api::best-slots-page.best-slots-page': ApiBestSlotsPageBestSlotsPage;
       'api::casino-es.casino-es': ApiCasinoEsCasinoEs;
       'api::casino-it.casino-it': ApiCasinoItCasinoIt;
-      'api::casinos-page-es.casinos-page-es': ApiCasinosPageEsCasinosPageEs;
-      'api::casinos-page-it.casinos-page-it': ApiCasinosPageItCasinosPageIt;
+      'api::casinos-page.casinos-page': ApiCasinosPageCasinosPage;
       'api::game-error-report.game-error-report': ApiGameErrorReportGameErrorReport;
-      'api::home-page-es.home-page-es': ApiHomePageEsHomePageEs;
-      'api::home-page-it.home-page-it': ApiHomePageItHomePageIt;
+      'api::home-page.home-page': ApiHomePageHomePage;
+      'api::new-slots-page.new-slots-page': ApiNewSlotsPageNewSlotsPage;
       'api::payment-method.payment-method': ApiPaymentMethodPaymentMethod;
       'api::provider.provider': ApiProviderProvider;
-      'api::providers-page-es.providers-page-es': ApiProvidersPageEsProvidersPageEs;
-      'api::providers-page-it.providers-page-it': ApiProvidersPageItProvidersPageIt;
+      'api::providers-page.providers-page': ApiProvidersPageProvidersPage;
       'api::roulette-mechanic.roulette-mechanic': ApiRouletteMechanicRouletteMechanic;
+      'api::roulette-page.roulette-page': ApiRoulettePageRoulettePage;
       'api::roulette.roulette': ApiRouletteRoulette;
-      'api::roulettes-page-es.roulettes-page-es': ApiRoulettesPageEsRoulettesPageEs;
-      'api::roulettes-page-it.roulettes-page-it': ApiRoulettesPageItRoulettesPageIt;
       'api::search-query.search-query': ApiSearchQuerySearchQuery;
       'api::slot-mechanic.slot-mechanic': ApiSlotMechanicSlotMechanic;
       'api::slot-theme.slot-theme': ApiSlotThemeSlotTheme;
       'api::slot.slot': ApiSlotSlot;
-      'api::slots-best-es.slots-best-es': ApiSlotsBestEsSlotsBestEs;
-      'api::slots-best-it.slots-best-it': ApiSlotsBestItSlotsBestIt;
-      'api::slots-new-es.slots-new-es': ApiSlotsNewEsSlotsNewEs;
-      'api::slots-new-it.slots-new-it': ApiSlotsNewItSlotsNewIt;
-      'api::slots-page-es.slots-page-es': ApiSlotsPageEsSlotsPageEs;
-      'api::slots-page-it.slots-page-it': ApiSlotsPageItSlotsPageIt;
+      'api::slots-page.slots-page': ApiSlotsPageSlotsPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
