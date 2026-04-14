@@ -175,6 +175,16 @@
       "relation": "manyToOne",
       "target": "api::author.author",
       "inversedBy": "casinos"
+    },
+    "faqs": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "faqs.faqs",
+      "repeatable": true
     }
   }
 }
