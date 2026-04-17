@@ -1067,22 +1067,16 @@ export interface ApiRouletteMechanicRouletteMechanic
   };
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    content: Schema.Attribute.Component<'common.content', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    firstContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    introContent: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1095,12 +1089,6 @@ export interface ApiRouletteMechanicRouletteMechanic
     >;
     publishedAt: Schema.Attribute.DateTime;
     roulettes: Schema.Attribute.Relation<'oneToMany', 'api::roulette.roulette'>;
-    secondContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     seo: Schema.Attribute.Component<'seo.seo', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1310,22 +1298,16 @@ export interface ApiSlotMechanicSlotMechanic
   };
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    content: Schema.Attribute.Component<'common.content', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    firstContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    introContent: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1337,12 +1319,6 @@ export interface ApiSlotMechanicSlotMechanic
       'api::slot-mechanic.slot-mechanic'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    secondContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     seo: Schema.Attribute.Component<'seo.seo', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1380,22 +1356,16 @@ export interface ApiSlotThemeSlotTheme extends Struct.CollectionTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    content: Schema.Attribute.Component<'common.content', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    firstContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    introContent: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1407,12 +1377,6 @@ export interface ApiSlotThemeSlotTheme extends Struct.CollectionTypeSchema {
       'api::slot-theme.slot-theme'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    secondContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     seo: Schema.Attribute.Component<'seo.seo', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

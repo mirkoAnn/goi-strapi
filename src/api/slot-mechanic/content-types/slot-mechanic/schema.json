@@ -37,30 +37,6 @@
       "component": "seo.seo",
       "repeatable": false
     },
-    "introContent": {
-      "type": "blocks",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "firstContent": {
-      "type": "blocks",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "secondContent": {
-      "type": "blocks",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "faqs": {
       "type": "component",
       "pluginOptions": {
@@ -82,6 +58,16 @@
       "relation": "oneToMany",
       "target": "api::slot.slot",
       "mappedBy": "slotMechanic"
+    },
+    "content": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "common.content",
+      "repeatable": false
     }
   }
 }
