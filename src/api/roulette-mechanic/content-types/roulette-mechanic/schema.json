@@ -68,6 +68,14 @@
       },
       "component": "common.content",
       "repeatable": false
+    },
+    "iconId": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
