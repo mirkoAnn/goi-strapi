@@ -55,30 +55,6 @@
         "images"
       ]
     },
-    "images": {
-      "type": "media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "multiple": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "imagesMobile": {
-      "type": "media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "multiple": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "logoSmall": {
       "type": "media",
       "pluginOptions": {
@@ -119,15 +95,19 @@
       "component": "casino.info",
       "repeatable": false
     },
-    "content": {
-      "type": "component",
+    "dynamicContent": {
+      "type": "dynamiczone",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "common.content",
-      "repeatable": false
+      "components": [
+        "common.paragraph",
+        "common.table",
+        "common.figure",
+        "common.svelte-component"
+      ]
     },
     "colors": {
       "type": "component",

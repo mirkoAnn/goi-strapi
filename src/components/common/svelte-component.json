@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_common_svelte_components",
+  "info": {
+    "displayName": "SvelteComponent"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

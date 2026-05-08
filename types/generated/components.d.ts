@@ -119,25 +119,6 @@ export interface CommonColors extends Struct.ComponentSchema {
   };
 }
 
-export interface CommonContent extends Struct.ComponentSchema {
-  collectionName: 'components_common_contents';
-  info: {
-    displayName: 'Content';
-  };
-  attributes: {
-    eighthContent: Schema.Attribute.Blocks;
-    fifthContent: Schema.Attribute.Blocks;
-    firstContent: Schema.Attribute.Blocks;
-    fourthContent: Schema.Attribute.Blocks;
-    ninethContent: Schema.Attribute.Blocks;
-    secondContent: Schema.Attribute.Blocks;
-    seventhContent: Schema.Attribute.Blocks;
-    sixthContent: Schema.Attribute.Blocks;
-    tenthContent: Schema.Attribute.Blocks;
-    thirdContent: Schema.Attribute.Blocks;
-  };
-}
-
 export interface CommonFigure extends Struct.ComponentSchema {
   collectionName: 'components_common_figures';
   info: {
@@ -146,6 +127,17 @@ export interface CommonFigure extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
+    mobileImage: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface CommonParagraph extends Struct.ComponentSchema {
+  collectionName: 'components_common_paragraphs';
+  info: {
+    displayName: 'Paragraph';
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks;
   };
 }
 
@@ -158,6 +150,26 @@ export interface CommonRating extends Struct.ComponentSchema {
     down: Schema.Attribute.Integer;
     trend: Schema.Attribute.JSON;
     up: Schema.Attribute.Integer;
+  };
+}
+
+export interface CommonSvelteComponent extends Struct.ComponentSchema {
+  collectionName: 'components_common_svelte_components';
+  info: {
+    displayName: 'SvelteComponent';
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+  };
+}
+
+export interface CommonTable extends Struct.ComponentSchema {
+  collectionName: 'components_common_tables';
+  info: {
+    displayName: 'Table';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
   };
 }
 
@@ -226,9 +238,11 @@ declare module '@strapi/strapi' {
       'casino.info': CasinoInfo;
       'casino.welcome-bonus': CasinoWelcomeBonus;
       'common.colors': CommonColors;
-      'common.content': CommonContent;
       'common.figure': CommonFigure;
+      'common.paragraph': CommonParagraph;
       'common.rating': CommonRating;
+      'common.svelte-component': CommonSvelteComponent;
+      'common.table': CommonTable;
       'faqs.faqs': FaqsFaqs;
       'roulette.info': RouletteInfo;
       'seo.seo': SeoSeo;

@@ -25,15 +25,19 @@
       "component": "seo.seo",
       "repeatable": false
     },
-    "content": {
-      "type": "component",
+    "dynamicContent": {
+      "type": "dynamiczone",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "common.content",
-      "repeatable": false
+      "components": [
+        "common.paragraph",
+        "common.table",
+        "common.figure",
+        "common.svelte-component"
+      ]
     },
     "faqs": {
       "type": "component",

@@ -560,15 +560,22 @@ export interface ApiBestCasinosPageBestCasinosPage
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -611,15 +618,22 @@ export interface ApiBestRoulettePageBestRoulettePage
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -661,15 +675,22 @@ export interface ApiBestSlotsPageBestSlotsPage extends Struct.SingleTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -723,28 +744,23 @@ export interface ApiCasinoCasino extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    content: Schema.Attribute.Component<'common.content', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    images: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    imagesMobile: Schema.Attribute.Media<'images', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -840,15 +856,22 @@ export interface ApiCasinosPageCasinosPage extends Struct.SingleTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -919,15 +942,22 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -965,15 +995,22 @@ export interface ApiLiveRoulettePageLiveRoulettePage
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1016,15 +1053,22 @@ export interface ApiNewCasinosPageNewCasinosPage
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1067,15 +1111,22 @@ export interface ApiNewRoulettePageNewRoulettePage
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1117,15 +1168,22 @@ export interface ApiNewSlotsPageNewSlotsPage extends Struct.SingleTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1206,15 +1264,17 @@ export interface ApiProviderProvider extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      ['common.paragraph', 'common.table', 'common.figure']
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1226,7 +1286,7 @@ export interface ApiProviderProvider extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::provider.provider'
     >;
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+    logo: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1241,8 +1301,14 @@ export interface ApiProviderProvider extends Struct.CollectionTypeSchema {
         };
       }>;
     slots: Schema.Attribute.Relation<'oneToMany', 'api::slot.slot'>;
-    slug: Schema.Attribute.UID<'title'>;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     title: Schema.Attribute.String &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1271,15 +1337,22 @@ export interface ApiProvidersPageProvidersPage extends Struct.SingleTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1322,15 +1395,22 @@ export interface ApiRouletteMechanicRouletteMechanic
   };
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1386,15 +1466,22 @@ export interface ApiRoulettePageRoulettePage extends Struct.SingleTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1559,15 +1646,22 @@ export interface ApiSlotMechanicSlotMechanic
   };
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1617,15 +1711,22 @@ export interface ApiSlotThemeSlotTheme extends Struct.CollectionTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1793,15 +1894,22 @@ export interface ApiSlotsPageSlotsPage extends Struct.SingleTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
-    content: Schema.Attribute.Component<'common.content', false> &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     faqs: Schema.Attribute.Component<'faqs.faqs', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

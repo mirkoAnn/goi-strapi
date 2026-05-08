@@ -21,10 +21,16 @@
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "unique": true
     },
     "slug": {
       "type": "uid",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "targetField": "title"
     },
     "logo": {
@@ -36,10 +42,7 @@
       },
       "multiple": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "colors": {
@@ -86,15 +89,18 @@
       "target": "api::casino.casino",
       "mappedBy": "providers"
     },
-    "content": {
-      "type": "component",
+    "dynamicContent": {
+      "type": "dynamiczone",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "common.content",
-      "repeatable": false
+      "components": [
+        "common.paragraph",
+        "common.table",
+        "common.figure"
+      ]
     },
     "faqs": {
       "type": "component",

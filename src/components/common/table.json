@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_common_tables",
+  "info": {
+    "displayName": "Table"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}
