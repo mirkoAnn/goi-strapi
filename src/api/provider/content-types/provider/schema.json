@@ -111,6 +111,12 @@
       },
       "component": "faqs.faqs",
       "repeatable": true
+    },
+    "crashes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::crash.crash",
+      "mappedBy": "provider"
     }
   }
 }

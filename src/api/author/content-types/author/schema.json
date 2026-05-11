@@ -107,6 +107,18 @@
       "relation": "oneToMany",
       "target": "api::casino.casino",
       "mappedBy": "author"
+    },
+    "crash_themes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::crash-theme.crash-theme",
+      "mappedBy": "author"
+    },
+    "crashes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::crash.crash",
+      "mappedBy": "author"
     }
   }
 }

@@ -1,10 +1,13 @@
 {
-  "collectionName": "components_roulette_infos",
+  "collectionName": "components_crash_infos",
   "info": {
     "displayName": "Info"
   },
   "options": {},
   "attributes": {
+    "releaseYear": {
+      "type": "string"
+    },
     "rtp": {
       "type": "string"
     },
@@ -22,6 +25,9 @@
       "type": "string"
     },
     "betMax": {
+      "type": "string"
+    },
+    "winMax": {
       "type": "string"
     }
   },

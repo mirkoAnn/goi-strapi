@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "crash_pages",
+  "info": {
+    "singularName": "crash-page",
+    "pluralName": "crash-pages",
+    "displayName": "Crash Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "dynamicContent": {
+      "type": "dynamiczone",
+      "components": [
+        "common.paragraph",
+        "common.table",
+        "common.figure",
+        "common.svelte-component"
+      ]
+    },
+    "faqs": {
+      "type": "component",
+      "component": "faqs.faqs",
+      "repeatable": true
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author"
+    }
+  }
+}

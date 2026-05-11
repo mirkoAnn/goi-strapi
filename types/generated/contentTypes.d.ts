@@ -484,6 +484,11 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
   attributes: {
     casinos: Schema.Attribute.Relation<'oneToMany', 'api::casino.casino'>;
+    crash_themes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::crash-theme.crash-theme'
+    >;
+    crashes: Schema.Attribute.Relation<'oneToMany', 'api::crash.crash'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -594,6 +599,48 @@ export interface ApiBestCasinosPageBestCasinosPage
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBestCrashPageBestCrashPage extends Struct.SingleTypeSchema {
+  collectionName: 'best_crash_pages';
+  info: {
+    displayName: 'Best Crash Page';
+    pluralName: 'best-crash-pages';
+    singularName: 'best-crash-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.table',
+        'common.svelte-component',
+        'common.paragraph',
+        'common.figure',
+      ]
+    >;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::best-crash-page.best-crash-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -896,6 +943,145 @@ export interface ApiCasinosPageCasinosPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCrashPageCrashPage extends Struct.SingleTypeSchema {
+  collectionName: 'crash_pages';
+  info: {
+    displayName: 'Crash Page';
+    pluralName: 'crash-pages';
+    singularName: 'crash-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    >;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::crash-page.crash-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCrashThemeCrashTheme extends Struct.CollectionTypeSchema {
+  collectionName: 'crash_themes';
+  info: {
+    displayName: 'Crash Theme';
+    pluralName: 'crash-themes';
+    singularName: 'crash-theme';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    crashes: Schema.Attribute.Relation<'manyToMany', 'api::crash.crash'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.svelte-component',
+      ]
+    >;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true>;
+    iconId: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::crash-theme.crash-theme'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCrashCrash extends Struct.CollectionTypeSchema {
+  collectionName: 'crashes';
+  info: {
+    displayName: 'Crash';
+    pluralName: 'crashes';
+    singularName: 'crash';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    crashThemes: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::crash-theme.crash-theme'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    gameUrl: Schema.Attribute.String;
+    images: Schema.Attribute.Component<'common.figure', true>;
+    info: Schema.Attribute.Component<'crash.info', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    introContent: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::crash.crash'>;
+    logo: Schema.Attribute.Media<'images'>;
+    opinionContent: Schema.Attribute.Blocks;
+    provider: Schema.Attribute.Relation<'manyToOne', 'api::provider.provider'>;
+    publishedAt: Schema.Attribute.DateTime;
+    rating: Schema.Attribute.Component<'common.rating', false>;
+    rulesContent: Schema.Attribute.Blocks;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    sessions: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGameErrorReportGameErrorReport
   extends Struct.CollectionTypeSchema {
   collectionName: 'game_error_reports';
@@ -1093,6 +1279,48 @@ export interface ApiNewCasinosPageNewCasinosPage
   };
 }
 
+export interface ApiNewCrashPageNewCrashPage extends Struct.SingleTypeSchema {
+  collectionName: 'new_crash_pages';
+  info: {
+    displayName: 'New Crash Page';
+    pluralName: 'new-crash-pages';
+    singularName: 'new-crash-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.table',
+        'common.svelte-component',
+        'common.paragraph',
+        'common.figure',
+      ]
+    >;
+    faqs: Schema.Attribute.Component<'faqs.faqs', true>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::new-crash-page.new-crash-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNewRoulettePageNewRoulettePage
   extends Struct.SingleTypeSchema {
   collectionName: 'new_roulette_pages';
@@ -1264,6 +1492,7 @@ export interface ApiProviderProvider extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    crashes: Schema.Attribute.Relation<'oneToMany', 'api::crash.crash'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2448,14 +2677,19 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::author.author': ApiAuthorAuthor;
       'api::best-casinos-page.best-casinos-page': ApiBestCasinosPageBestCasinosPage;
+      'api::best-crash-page.best-crash-page': ApiBestCrashPageBestCrashPage;
       'api::best-roulette-page.best-roulette-page': ApiBestRoulettePageBestRoulettePage;
       'api::best-slots-page.best-slots-page': ApiBestSlotsPageBestSlotsPage;
       'api::casino.casino': ApiCasinoCasino;
       'api::casinos-page.casinos-page': ApiCasinosPageCasinosPage;
+      'api::crash-page.crash-page': ApiCrashPageCrashPage;
+      'api::crash-theme.crash-theme': ApiCrashThemeCrashTheme;
+      'api::crash.crash': ApiCrashCrash;
       'api::game-error-report.game-error-report': ApiGameErrorReportGameErrorReport;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::live-roulette-page.live-roulette-page': ApiLiveRoulettePageLiveRoulettePage;
       'api::new-casinos-page.new-casinos-page': ApiNewCasinosPageNewCasinosPage;
+      'api::new-crash-page.new-crash-page': ApiNewCrashPageNewCrashPage;
       'api::new-roulette-page.new-roulette-page': ApiNewRoulettePageNewRoulettePage;
       'api::new-slots-page.new-slots-page': ApiNewSlotsPageNewSlotsPage;
       'api::payment-method.payment-method': ApiPaymentMethodPaymentMethod;

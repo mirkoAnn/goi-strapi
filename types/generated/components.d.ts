@@ -173,6 +173,23 @@ export interface CommonTable extends Struct.ComponentSchema {
   };
 }
 
+export interface CrashInfo extends Struct.ComponentSchema {
+  collectionName: 'components_crash_infos';
+  info: {
+    displayName: 'Info';
+  };
+  attributes: {
+    betMax: Schema.Attribute.String;
+    betMin: Schema.Attribute.String;
+    releaseYear: Schema.Attribute.String;
+    rtp: Schema.Attribute.String;
+    volatility: Schema.Attribute.Enumeration<
+      ['low', 'medium-low', 'medium', 'medium-high', 'high']
+    >;
+    winMax: Schema.Attribute.String;
+  };
+}
+
 export interface FaqsFaqs extends Struct.ComponentSchema {
   collectionName: 'components_faqs_faqs';
   info: {
@@ -193,7 +210,9 @@ export interface RouletteInfo extends Struct.ComponentSchema {
     betMax: Schema.Attribute.String;
     betMin: Schema.Attribute.String;
     rtp: Schema.Attribute.String;
-    volatility: Schema.Attribute.Enumeration<['Bassa', 'Media', 'Alta']>;
+    volatility: Schema.Attribute.Enumeration<
+      ['low', 'medium-low', 'medium', 'medium-high', 'high']
+    >;
   };
 }
 
@@ -243,6 +262,7 @@ declare module '@strapi/strapi' {
       'common.rating': CommonRating;
       'common.svelte-component': CommonSvelteComponent;
       'common.table': CommonTable;
+      'crash.info': CrashInfo;
       'faqs.faqs': FaqsFaqs;
       'roulette.info': RouletteInfo;
       'seo.seo': SeoSeo;

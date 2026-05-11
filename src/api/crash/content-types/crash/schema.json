@@ -1,0 +1,92 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crashes",
+  "info": {
+    "singularName": "crash",
+    "pluralName": "crashes",
+    "displayName": "Crash"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "sessions": {
+      "type": "integer",
+      "default": 0
+    },
+    "introContent": {
+      "type": "blocks"
+    },
+    "rulesContent": {
+      "type": "blocks"
+    },
+    "opinionContent": {
+      "type": "blocks"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "crashes"
+    },
+    "crashThemes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::crash-theme.crash-theme",
+      "inversedBy": "crashes"
+    },
+    "provider": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::provider.provider",
+      "inversedBy": "crashes"
+    },
+    "gameUrl": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "component",
+      "component": "common.rating",
+      "repeatable": false
+    },
+    "images": {
+      "type": "component",
+      "component": "common.figure",
+      "repeatable": true
+    },
+    "info": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "crash.info",
+      "repeatable": false
+    }
+  }
+}
