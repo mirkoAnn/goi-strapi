@@ -26,7 +26,8 @@
         "common.table",
         "common.svelte-component",
         "common.paragraph",
-        "common.figure"
+        "common.figure",
+        "common.paragraph-with-figure"
       ]
     },
     "faqs": {

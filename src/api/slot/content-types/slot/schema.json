@@ -61,38 +61,6 @@
       },
       "default": 0
     },
-    "introContent": {
-      "type": "blocks",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "rulesContent": {
-      "type": "blocks",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "bonusContent": {
-      "type": "blocks",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "opinionContent": {
-      "type": "blocks",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "info": {
       "type": "component",
       "pluginOptions": {
@@ -145,15 +113,20 @@
       "target": "api::slot-mechanic.slot-mechanic",
       "inversedBy": "slots"
     },
-    "images": {
-      "type": "component",
+    "dynamicContent": {
+      "type": "dynamiczone",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "common.figure",
-      "repeatable": true
+      "components": [
+        "common.table",
+        "common.svelte-component",
+        "common.paragraph",
+        "common.paragraph-with-figure",
+        "common.figure"
+      ]
     }
   }
 }

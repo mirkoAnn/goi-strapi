@@ -574,6 +574,7 @@ export interface ApiBestCasinosPageBestCasinosPage
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -631,6 +632,7 @@ export interface ApiBestCrashPageBestCrashPage extends Struct.SingleTypeSchema {
         'common.svelte-component',
         'common.paragraph',
         'common.figure',
+        'common.paragraph-with-figure',
       ]
     >;
     faqs: Schema.Attribute.Component<'faqs.faqs', true>;
@@ -674,6 +676,7 @@ export interface ApiBestRoulettePageBestRoulettePage
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -731,6 +734,7 @@ export interface ApiBestSlotsPageBestSlotsPage extends Struct.SingleTypeSchema {
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -800,6 +804,7 @@ export interface ApiCasinoCasino extends Struct.CollectionTypeSchema {
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -912,6 +917,7 @@ export interface ApiCasinosPageCasinosPage extends Struct.SingleTypeSchema {
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -969,6 +975,7 @@ export interface ApiCrashPageCrashPage extends Struct.SingleTypeSchema {
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     >;
     faqs: Schema.Attribute.Component<'faqs.faqs', true>;
@@ -1012,6 +1019,7 @@ export interface ApiCrashThemeCrashTheme extends Struct.CollectionTypeSchema {
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     >;
     faqs: Schema.Attribute.Component<'faqs.faqs', true>;
@@ -1055,23 +1063,33 @@ export interface ApiCrashCrash extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.table',
+        'common.svelte-component',
+        'common.paragraph',
+        'common.paragraph-with-figure',
+        'common.figure',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     gameUrl: Schema.Attribute.String;
-    images: Schema.Attribute.Component<'common.figure', true>;
     info: Schema.Attribute.Component<'crash.info', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    introContent: Schema.Attribute.Blocks;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::crash.crash'>;
     logo: Schema.Attribute.Media<'images'>;
-    opinionContent: Schema.Attribute.Blocks;
     provider: Schema.Attribute.Relation<'manyToOne', 'api::provider.provider'>;
     publishedAt: Schema.Attribute.DateTime;
     rating: Schema.Attribute.Component<'common.rating', false>;
-    rulesContent: Schema.Attribute.Blocks;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     sessions: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     slug: Schema.Attribute.UID<'title'>;
@@ -1137,6 +1155,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -1190,6 +1209,7 @@ export interface ApiLiveRoulettePageLiveRoulettePage
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -1248,6 +1268,7 @@ export interface ApiNewCasinosPageNewCasinosPage
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -1305,6 +1326,7 @@ export interface ApiNewCrashPageNewCrashPage extends Struct.SingleTypeSchema {
         'common.svelte-component',
         'common.paragraph',
         'common.figure',
+        'common.paragraph-with-figure',
       ]
     >;
     faqs: Schema.Attribute.Component<'faqs.faqs', true>;
@@ -1348,6 +1370,7 @@ export interface ApiNewRoulettePageNewRoulettePage
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -1405,6 +1428,7 @@ export interface ApiNewSlotsPageNewSlotsPage extends Struct.SingleTypeSchema {
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -1497,7 +1521,12 @@ export interface ApiProviderProvider extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     dynamicContent: Schema.Attribute.DynamicZone<
-      ['common.paragraph', 'common.table', 'common.figure']
+      [
+        'common.paragraph',
+        'common.table',
+        'common.figure',
+        'common.paragraph-with-figure',
+      ]
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1575,6 +1604,7 @@ export interface ApiProvidersPageProvidersPage extends Struct.SingleTypeSchema {
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -1633,6 +1663,7 @@ export interface ApiRouletteMechanicRouletteMechanic
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -1704,6 +1735,7 @@ export interface ApiRoulettePageRoulettePage extends Struct.SingleTypeSchema {
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -1755,6 +1787,20 @@ export interface ApiRouletteRoulette extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.table',
+        'common.svelte-component',
+        'common.paragraph',
+        'common.paragraph-with-figure',
+        'common.figure',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     gameplay: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1768,12 +1814,6 @@ export interface ApiRouletteRoulette extends Struct.CollectionTypeSchema {
         };
       }>;
     info: Schema.Attribute.Component<'roulette.info', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    introContent: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1884,6 +1924,7 @@ export interface ApiSlotMechanicSlotMechanic
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -1949,6 +1990,7 @@ export interface ApiSlotThemeSlotTheme extends Struct.CollectionTypeSchema {
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -2011,34 +2053,30 @@ export interface ApiSlotSlot extends Struct.CollectionTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    bonusContent: Schema.Attribute.Blocks &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicContent: Schema.Attribute.DynamicZone<
+      [
+        'common.table',
+        'common.svelte-component',
+        'common.paragraph',
+        'common.paragraph-with-figure',
+        'common.figure',
+      ]
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
     gameUrl: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    images: Schema.Attribute.Component<'common.figure', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     info: Schema.Attribute.Component<'slot.info', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    introContent: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2052,21 +2090,9 @@ export interface ApiSlotSlot extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    opinionContent: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     provider: Schema.Attribute.Relation<'manyToOne', 'api::provider.provider'>;
     publishedAt: Schema.Attribute.DateTime;
     rating: Schema.Attribute.Component<'common.rating', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    rulesContent: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2132,6 +2158,7 @@ export interface ApiSlotsPageSlotsPage extends Struct.SingleTypeSchema {
         'common.table',
         'common.figure',
         'common.svelte-component',
+        'common.paragraph-with-figure',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{

@@ -141,6 +141,21 @@ export interface CommonParagraph extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonParagraphWithFigure extends Struct.ComponentSchema {
+  collectionName: 'components_common_paragraph_with_figures';
+  info: {
+    displayName: 'ParagraphWithFigure';
+  };
+  attributes: {
+    content: Schema.Attribute.Component<'common.paragraph', false>;
+    figure: Schema.Attribute.Component<'common.figure', false>;
+    imageSide: Schema.Attribute.Enumeration<
+      ['top', 'right', 'bottom', 'left']
+    > &
+      Schema.Attribute.DefaultTo<'right'>;
+  };
+}
+
 export interface CommonRating extends Struct.ComponentSchema {
   collectionName: 'components_common_ratings';
   info: {
@@ -259,6 +274,7 @@ declare module '@strapi/strapi' {
       'common.colors': CommonColors;
       'common.figure': CommonFigure;
       'common.paragraph': CommonParagraph;
+      'common.paragraph-with-figure': CommonParagraphWithFigure;
       'common.rating': CommonRating;
       'common.svelte-component': CommonSvelteComponent;
       'common.table': CommonTable;

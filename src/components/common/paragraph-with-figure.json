@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_common_paragraph_with_figures",
+  "info": {
+    "displayName": "ParagraphWithFigure"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "component": "common.paragraph",
+      "repeatable": false
+    },
+    "figure": {
+      "type": "component",
+      "component": "common.figure",
+      "repeatable": false
+    },
+    "imageSide": {
+      "type": "enumeration",
+      "default": "right",
+      "enum": [
+        "top",
+        "right",
+        "bottom",
+        "left"
+      ]
+    }
+  },
+  "config": {}
+}

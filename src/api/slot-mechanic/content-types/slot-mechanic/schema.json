@@ -70,7 +70,8 @@
         "common.paragraph",
         "common.table",
         "common.figure",
-        "common.svelte-component"
+        "common.svelte-component",
+        "common.paragraph-with-figure"
       ]
     }
   }

@@ -41,9 +41,7 @@
         }
       },
       "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "colors": {
       "type": "component",
@@ -99,7 +97,8 @@
       "components": [
         "common.paragraph",
         "common.table",
-        "common.figure"
+        "common.figure",
+        "common.paragraph-with-figure"
       ]
     },
     "faqs": {

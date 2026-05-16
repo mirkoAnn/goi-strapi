@@ -38,15 +38,6 @@
       "type": "integer",
       "default": 0
     },
-    "introContent": {
-      "type": "blocks"
-    },
-    "rulesContent": {
-      "type": "blocks"
-    },
-    "opinionContent": {
-      "type": "blocks"
-    },
     "author": {
       "type": "relation",
       "relation": "manyToOne",
@@ -73,11 +64,6 @@
       "component": "common.rating",
       "repeatable": false
     },
-    "images": {
-      "type": "component",
-      "component": "common.figure",
-      "repeatable": true
-    },
     "info": {
       "type": "component",
       "pluginOptions": {
@@ -87,6 +73,21 @@
       },
       "component": "crash.info",
       "repeatable": false
+    },
+    "dynamicContent": {
+      "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "components": [
+        "common.table",
+        "common.svelte-component",
+        "common.paragraph",
+        "common.paragraph-with-figure",
+        "common.figure"
+      ]
     }
   }
 }

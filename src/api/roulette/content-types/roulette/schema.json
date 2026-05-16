@@ -78,14 +78,6 @@
         }
       }
     },
-    "introContent": {
-      "type": "blocks",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "author": {
       "type": "relation",
       "relation": "manyToOne",
@@ -123,6 +115,21 @@
       },
       "component": "common.rating",
       "repeatable": false
+    },
+    "dynamicContent": {
+      "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "components": [
+        "common.table",
+        "common.svelte-component",
+        "common.paragraph",
+        "common.paragraph-with-figure",
+        "common.figure"
+      ]
     }
   }
 }
